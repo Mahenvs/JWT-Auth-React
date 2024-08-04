@@ -1,15 +1,14 @@
-import { FormEvent, useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import { formProps, loginApi } from "./loginAPI";
 
 function App() {
-  const [togglePswd, setTogglePswd] = useState(false);
+  const [togglePswd, setTogglePswd] = useState<boolean>(false);
   const [form, setForm] = useState<formProps>({
     username: "",
     pswd: "",
   });
   const handler = (value: string, flag: "user" | "pswd") => {
-    console.log(value, flag);
     if (flag == "pswd") {
       setForm((prev) => ({ ...prev, pswd: value }));
     } else {
@@ -17,7 +16,7 @@ function App() {
     }
   };
 
-  const loginHandler = (e: FormEvent<HTMLFormElement>) => {
+  const loginHandler = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     // Make an API Request
     loginApi(form);

@@ -14,11 +14,10 @@ export const loginApi = async (form: formProps) => {
       throw new Error(`Response status: ${response.status}`);
     }
     const json = await response.json();
-    console.log(json);
+
     alert(`Login success and token is ` + json.token);
   } catch (error) {
-    alert("Error"+error)
-    // console.error(error.message);
+    alert("Error" + error)
   }
 };
 

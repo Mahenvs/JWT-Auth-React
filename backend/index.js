@@ -14,7 +14,7 @@ dotenv.config();
 app.post("/login", (req, res) => {
   let username = req.body.username;
   let password = req.body.pswd;
-  let secret = process.env.key1;
+  let secret = process.env.key;
 
   const user = {
     username: username,
@@ -22,15 +22,13 @@ app.post("/login", (req, res) => {
   };
 
   jwt.sign(user, secret, (err, token) => {
-    console.log(err);
     if (err) {
       const errorStatus = 404; // Example status code
       const errorMessage = "Resource not found";
-      console.log(err);
+
       res.status(errorStatus).send({
         status: errorStatus,
         message: errorMessage,
-        error: err,
         timestamp: new Date().toISOString(),
       });
       // res.sendStatus(403);
@@ -50,6 +48,7 @@ app.post("/posts", verifyToken, (req, res) => {
     if (err) {
       res.sendStatus(403);
     } else {
+      // Fetch data from backend
       res.json({
         message: "Post created...",
         authData,
