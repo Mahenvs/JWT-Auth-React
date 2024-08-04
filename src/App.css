@@ -1,0 +1,61 @@
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+.inputBox{
+  padding: 0.5rem;
+  display: flex;
+  align-content: end;
+}
+input{
+  width: 200px;
+  padding: 0 0.5rem;
+}
+.form{
+  padding: 2em;
+  border: 1px solid rgb(167, 165, 165);
+  border-radius: 1em;
+}
+h2{
+  margin: 0.5rem 2rem 2rem;
+}
+.inputBox > label{
+  padding: 0.4rem;
+  align-content: last baseline;
+  text-align: self-end;
+  font-variant: small-caps;
+}
+.loginBtn{
+  display:flex;
+  justify-content: end;
+  padding-right: 0.5rem;
+}
+.loginBtn > button{
+  align-items: center;
+  margin-top: 1rem;
+  /* width: 90%; */
+  background-color: rgb(94, 94, 90);
+  color: black;
+}
+
+.pswd{
+  display: flex;
+  position: relative;
+}
+
+.pswd > button {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.4rem;
+}
+.strike{
+  text-decoration: line-through;
+}
